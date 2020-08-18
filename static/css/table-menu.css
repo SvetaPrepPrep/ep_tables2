@@ -5,15 +5,30 @@
 #table-context-menu {
   width: auto;
   display:none;
-  position: absolute;
-  z-index: 100;
-  padding: 0;
+  position: fixed!important;
+  top:45px;
+  padding: 0!important;
+  z-index:10000000000000000;
+
+} 
+
+#table-context-menu ul li a {
+  height:22px;
+}
+
+#table-context-menu ul li a:hover {
+  background-color: gainsboro;
 }
 
 #table-context-menu ul {
   list-style: none;
   padding: 6px 0;
   border-bottom: 1px solid #ccc;
+}
+
+#table-context-menu ul li {
+  margin: 2px 1px;
+  margin-top: 3px;
 }
 
 #table-context-menu .menu-item {
@@ -28,20 +43,23 @@
 
 #create-table-container {
   display: none;
-  position: absolute;
+  position: absolute!important;
   left: 100%;
   top: 0 !important;
   width: auto;
+  padding: 10px!important;
+  visibility: visible!important;
+
 }
 
 #tbl_prop_create_table:after{
   content: "▶";
   font-size: 9px;
-  padding-top: 2px;
+  padding: 5px 0 0 10px;
   float: right;
   opacity: .8;
 }
-
+ 
 #new-table-size {
   text-align: center;
   padding-bottom: 5px;
@@ -58,4 +76,26 @@
 #new-table-size-selector tr td.selected {
   border: 1px solid #789dce;
   background-color: #b3d4ff;
+}
+
+#table-context-menu ul {
+  display: block!important;
+}
+
+.table-context-menu{
+
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #f7f7f7;
+  background: -webkit-linear-gradient(#F7F7F7,#EEE);
+  background: -moz-linear-gradient(#F7F7F7,#EEE);
+  background: -ms-linear-gradient(#F7F7F7,#EEE);
+  background: -o-linear-gradient(#F7F7F7,#EEE);
+  background: linear-gradient(#F7F7F7,#EEE);
+  -webkit-box-shadow: 0 0 8px #888;
+  -moz-box-shadow: 0 0 8px #888;
+  box-shadow: 0 2px 4px #ddd;
 }

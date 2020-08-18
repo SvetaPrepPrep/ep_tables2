@@ -1,38 +1,29 @@
 {
-  "author": "quenenni,Gedion Woldeselassie,Tenzin Tsetan <quenenni@github,Sebastian Castro <seballot@github>",
-  "name": "ep_tables3",
-  "description": "Adds tables to etherpad-lite",
-  "version": "0.3.14",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/SvetaPrepPrep/ep_tables2.git"
-  },
-  "engines": {
-    "node": "*"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "optionalDependencies": {},
-  "_engineSupported": true,
-  "_npmVersion": "1.4.28",
-  "_nodeVersion": "v0.10.33",
-  "_defaultsLoaded": true,
-  "_from": "ep_tables2",
-  "_npmUser": {
-    "name": "svetaPrepPrep",
-    "email": "bistroplit@gmail.com"
-  },
+  "name": "ep_tables4",
+  "version": "1.0.5",
+  "description": "Insert tables into your Etherpad documents",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WC2-Foundation/ep_tables4.git"
+  },
   "keywords": [
     "etherpad-lite",
-    "tables"
+    "etherpad",
+    "tables",
+    "tables2",
+    "tables3",
+    "tables4",
+    "appjet",
+    "ether"
   ],
+  "author": "Sam Stauffacher",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/quenenni/SvetaPrepPrep/ep_tables2"
+    "url": "https://github.com/WC2-Foundation/ep_tables4/issues"
   },
-  "homepage": "https://github.com/SvetaPrepPrep/ep_tables2"
+  "homepage": "https://github.com/WC2-Foundation/ep_tables4#readme"
 }

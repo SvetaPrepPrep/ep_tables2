@@ -78,7 +78,7 @@ exports.aceStartLineAndCharForPoint = function (hook, context) {
       return selStart;
     }
   } catch (error) {
-    console.log('error ' + error);
+    //console.log('error ' + error);
   }
 };
 
@@ -91,7 +91,7 @@ exports.aceEndLineAndCharForPoint = function (hook, context) {
       return selEndLine;
     }
   } catch (error) {
-    console.log('error ' + error);
+    //console.log('error ' + error);
   }
 };
 
@@ -387,24 +387,25 @@ if (typeof (Datatables) == 'undefined') var Datatables = function () {
       var rep = this.context.rep;
       try {
         var currLineText = rep.lines.atIndex(rep.selStart[0]).text;
-        console.log("INSERT ROW | lineText", currLineText);
+        //console.log("INSERT ROW | lineText", currLineText);
         var payload = JSON.parse(currLineText).payload;
-        console.log("Payload", payload);
+        //console.log("Payload", payload);
         var currTdInfo = this.getFocusedTdInfo(payload, rep.selStart[1]);
-        console.log("currTdInfo", currTdInfo);
+        //console.log("currTdInfo", currTdInfo);
         var currRow = currTdInfo.row;
         var lastRowOffSet = 0;
         var start = [],
           end = [];
         start[0] = rep.selStart[0], start[1] = rep.selStart[1];
         end[0] = rep.selStart[0], end[1] = rep.selStart[1];
-        console.log("start", start, "end", end);
+        //console.log("start", start, "end", end);
         if (aboveOrBelow == 'addA') {
           // If we add a row above the first row, the new row must have the prop 'isFirstRow' and we must remove 'isFirstRow' from current row
           var isFirstRow = false;
           var jsoTblProp = this.getLineTableProperty(start[0]);
-          console.log("table prop", jsoTblProp);
+          //console.log("table prop", jsoTblProp);
           if (isFirstRow = jsoTblProp.isFirstRow) {
+            
             delete jsoTblProp['isFirstRow'];
             this.updateTblPropInAPool(-1, -1, jsoTblProp, start);
           }
@@ -1055,7 +1056,7 @@ if (typeof (Datatables) == 'undefined') var Datatables = function () {
     // Doesn't do any normalising, returns a string
     // of text as found.
     dt.toString = function () {
-      return "ep_tables2";
+      return "ep_tables4";
     };
     dt.getLineAndCharForPoint = function () {
       var context = this.context;
@@ -1090,7 +1091,7 @@ if (typeof (Datatables) == 'undefined') var Datatables = function () {
             n = parNode;
           }
         }
-        if (n.id == "") console.debug("BAD");
+       // if (n.id == "") console.debug("BAD");
         if (n.firstChild && context.editorInfo.ace_isBlockElement(n.firstChild)) {
           col += 1; // lineMarker
         }
@@ -1183,17 +1184,17 @@ if (typeof (Datatables) == 'undefined') var Datatables = function () {
       }
     };
     dt.getLineTableProperty = function (lineNum) {
-      console.log("getLineTableProperty", lineNum);
+      //console.log("getLineTableProperty", lineNum);
       var rep = this.context.rep;
       // get "tblProp" attribute of first char of line
       var aline = rep.alines[lineNum];
-      console.log("Aline", aline);
+      //console.log("Aline", aline);
       if (aline) {
         var opIter = Changeset.opIterator(aline);
-        console.log("opIter", opIter);
+        //console.log("opIter", opIter);
         if (opIter.hasNext()) {
           var tblJSString = Changeset.opAttributeValue(opIter.next(), 'tblProp', rep.apool);
-          console.log("tblJSString", tblJSString);
+          //console.log("tblJSString", tblJSString);
           try {
             return JSON.parse(tblJSString);
           } catch (error) {

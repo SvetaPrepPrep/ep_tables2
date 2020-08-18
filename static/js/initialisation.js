@@ -5,20 +5,36 @@ exports.postAceInit = function (hook, context) {
 
   openContextMenu = function (init) {
     if (!$tblContextMenu) initContextMenu();
-    $tblContextMenu.css({'top': $('#editbar').outerHeight(), 'left': $('#table-menu-button').offset().left - 12}).toggle();
+    $tblContextMenu.css({'top': '45px', 'left': $('#table-menu-button').offset().left}).toggle();
   };
 
   hideContextMenu = function() {
     $tblContextMenu.hide();
   }
 
-  initContextMenu = function() {    
-    $tblContextMenu = $('#table-context-menu').appendTo('body');
+  initContextMenu = function() {  
+  
+    
+    $tblContextMenu = $('#table-context-menu').appendTo('#editbar',function(){
 
-    // Displaying the matrix to choose the new table size
-    $('#tbl_prop_create_table').hover(function() { 
-      $('#create-table-container').show();
+      $tblContextMenu.css({'top': '45px', 'left': $('#table-menu-button').offset().left,'z-index':'1000000000000','display':'block','visibility':'visible'});
+   
     });
+    
+
+    $("#create-table-container").hover(function() {
+      $('#create-table-container').show();
+      }, function() {
+      $('#create-table-container').hide();
+    });
+
+$('#tbl_prop_menu_hide').click(openContextMenu); 
+    $("#tbl_prop_create_table").hover(function() {
+      $('#create-table-container').show();
+      }, function() {
+      $('#create-table-container').hide();
+    });
+    
     $tblContextMenu.find('.menu-item:not(#tbl_prop_create_table)').hover(function() { 
       $('#create-table-container').hide();
     });

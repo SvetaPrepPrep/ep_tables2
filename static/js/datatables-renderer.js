@@ -8,7 +8,8 @@ if (typeof (DatatablesRenderer) == 'undefined') var DatatablesRenderer = functio
 		        
                 // Strange behaviour from IE. 
                 // It comes here 2 times per row, so I have to stop rendering a second time to avoid desctruction of the rendering
-		        if (context != "timeslider" && element.innerHTML && element.innerHTML.indexOf("payload") != 2) { console.log("DO NOTHING"); return; }
+                if (context != "timeslider" && element.innerHTML && element.innerHTML.indexOf("payload") != 2) { //console.log("DO NOTHING");
+                 return; }
                 
                 var renderer = new DatatablesRenderer.Renderer();
                 // while(element.children.length > 0 && element.className != "table-data") {
@@ -87,7 +88,7 @@ if (typeof (DatatablesRenderer) == 'undefined') var DatatablesRenderer = functio
                 // the tables contains only one row, no need to do a FOR
                 for (var j = 0, rl = rows.length; j < rl; j++) {
                     var tds = rows[j];
-                    console.log("draw table", tds, tblProperties);
+                    //console.log("draw table", tds, tblProperties);
                     var rowBgColor = oddRowBgColor;
                     if (!rowBgColor) {
                         rowBgColor = evenRowBgColor;
@@ -96,7 +97,7 @@ if (typeof (DatatablesRenderer) == 'undefined') var DatatablesRenderer = functio
                     if (isFirstRow) htmlTbl += " " + bordersTop + "!important;";
                     htmlTbl += "' class='" + trClass + "'>";
                     var preHeader = j == 0 ? "{\"payload\":[[\"" : "";
-                    htmlTbl += "<td  name='payload' class='hide-el overhead' style='display:none;'>" + preHeader + "</td>";
+                    htmlTbl += "<td class='regex-delete'  name='payload' class='hide-el overhead' style='display:none;'>" + preHeader + "</td>";
                     var singleRowAttr = typeof (singleRowAttrs) == 'undefined' || singleRowAttrs == null ? null : singleRowAttrs[j];
                     for (var i = 0, tl = tds.length; i < tl; i++) {
                         var cellAttr = typeof (cellAttrs[j]) == 'undefined' || cellAttrs[j] == null ? null : cellAttrs[j][i];
@@ -110,7 +111,7 @@ if (typeof (DatatablesRenderer) == 'undefined') var DatatablesRenderer = functio
                         var colVAlign = typeof (colAttrs[i]) == 'undefined' || colAttrs[i] == null ? "" : "align='" + colAttrs[i].colVAlign + "'" || "";
                         var quoteAndComma = "\",\"";
                         var cellDel = "";
-                        var delimCell = "<td name='delimCell' id='" + "' class='hide-el overhead' style='display:none;'>" + quoteAndComma + "</td>";
+                        var delimCell = "<td class='regex-delete' name='delimCell' id='" + "' class='hide-el overhead' style='display:none;'>" + quoteAndComma + "</td>";
                         var lastCellBorder = "";
                         if (i == tl - 1) {
                             delimCell = "";
@@ -134,7 +135,7 @@ if (typeof (DatatablesRenderer) == 'undefined') var DatatablesRenderer = functio
                         }
                     }
                     var bracketAndcomma = "\"]],\"tblId\":\"1\",\"tblClass\":\"data-tables\", \"tblProperties\":" + JSON.stringify(tblProperties) + "}";
-                    htmlTbl += "<td name='bracketAndcomma' class=' hide-el overhead' style='display:none;'>" + bracketAndcomma + "</td>";
+                    htmlTbl += "<td class='regex-delete' name='bracketAndcomma' class=' hide-el overhead' style='display:none;'>" + bracketAndcomma + "</td>";
                     htmlTbl += "</tr>";
                 }
                 htmlTbl += "</tbody></table>";
